@@ -6,6 +6,8 @@ export default function AddTodoForm(props) {
     let todoTitle = event.target.title.value;
     // console.log("todoTitle = " + todoTitle);
     props.onAddTodo(todoTitle);
+    
+    // event.target.title.value = 3;
   };
 
   return (
