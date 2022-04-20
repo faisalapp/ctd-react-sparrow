@@ -3,6 +3,8 @@ import TodoListItem from "./TodoListItem";
 
 /* define object */
 
+/*
+
 let todoList = [
   {
     id: 1,
@@ -18,14 +20,18 @@ let todoList = [
   },
 ];
 
+*/
+
 // console.log("TodoList")
 
-export default function TodoList() {
+export default function TodoList(props) {
+  // console.log(props.todoList)
   return (
     <div>
       <ul>
-        {todoList.map(function (todo) {
+        {props.todoList.map(function (todo) {
           return <TodoListItem key={todo.id} todo={todo} />
+          
         })}
       </ul>
     </div>
