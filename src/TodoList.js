@@ -24,12 +24,12 @@ let todoList = [
 
 // console.log("TodoList")
 
-export default function TodoList(props) {
-  // console.log(props.todoList)
+export default function TodoList({todoList}) {
+  // const {todoList} = props; // applying destructuring directly in parameters
   return (
     <div>
       <ul>
-        {props.todoList.map(function (todo) {
+        {todoList.map(function (todo) {
           return <TodoListItem key={todo.id} todo={todo} />
           
         })}

@@ -2,10 +2,11 @@ import React from "react";
 
 // console.log("TodoListItem")
 
-export default function TodoListItem(props) {
+export default function TodoListItem({todo:{title}}) {
+    // const {todo:{title}} = props; // applying destructuring directly in parameters
   return (
     <div>
-      <li>{props.todo.title}</li>
+      <li>{title}</li>
     </div>
   );
 }
