@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function AddTodoForm(props) {
+export default function AddTodoForm({onAddTodo}) {
 
-  // const {onAddTodo, todoTitle} = props; // applying destructuring
+  // const {onAddTodo, todoTitle} = props; // applying destructuring directly in parameters
 
   const [todoTitle, setTodoTitle] = React.useState("");
 
@@ -20,13 +20,11 @@ export default function AddTodoForm(props) {
     // let todoTitle = event.target.title.value; // old
     // props.onAddTodo(todoTitle); // old
 
-    props.onAddTodo({ title: todoTitle, id: Date.now() });
+    onAddTodo({ title: todoTitle, id: Date.now() });
    
-   // Inside handleAddTodo, remove the reset() method and replace it with logic to reset the todoTitle state to an empty String
-
-    event.target[0].value="" // is this correct logic? If some mentor could verify in his feedback. Thx
- 
-    // console.log(event.target[0].value);
+    // Inside handleAddTodo, remove the reset() method and replace it with logic to reset the todoTitle state to an empty String
+    // event.target[0].value="" // is this correct logic? If some mentor could verify in the feedback. Thx
+    setTodoTitle(""); // correct logic
 
     
 
@@ -40,7 +38,7 @@ export default function AddTodoForm(props) {
           type="text"
           id="todoTitle"
           name="title"
-          value={props.todoTitle} // there is no such parameter for this component on app.js line # 25  so how come no error flag?
+          value={todoTitle} // there is no such parameter for this component on app.js line # 25  so how come no error flag?
           onChange={handleTitleChange}
         ></input>
         <button type="submit">Add</button>
