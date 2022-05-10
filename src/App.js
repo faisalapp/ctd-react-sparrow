@@ -48,7 +48,7 @@ function App() {
     if (isLoading === false) {
       localStorage.setItem("savedTodoList", JSON.stringify(todoList));
     }
-  }, [todoList]);
+  }, [todoList, isLoading]);
 
 
   // const [todoList, setTodoList] = useSemiPersistentState(); // old
