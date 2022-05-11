@@ -22,13 +22,7 @@ export default function AddTodoForm({onAddTodo}) {
     // props.onAddTodo(todoTitle); // old
 
     onAddTodo({ title: todoTitle, id: Date.now() });
-   
-    setTodoTitle(""); // correct logic
- 
-    // console.log(event.target[0].value);
-
-    
-
+    setTodoTitle("");
   };
 
   return (
