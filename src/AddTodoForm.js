@@ -22,13 +22,20 @@ export default function AddTodoForm({onAddTodo}) {
     // props.onAddTodo(todoTitle); // old
 
     onAddTodo({ title: todoTitle, id: Date.now() });
+
     setTodoTitle("");
+
+   
+
+  
   };
 
   return (
     <div>
       <form onSubmit={handleAddTodo}>
+
       <InputWithLabel todoTitle={todoTitle} handleTitleChange={handleTitleChange} isFocused>Title </InputWithLabel>
+
         <button type="submit">Add</button>
       </form>
     </div>
