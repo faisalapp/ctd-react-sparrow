@@ -1,4 +1,5 @@
 import React from "react";
+import InputWithLabel from "./InputWithLabel";
 
 export default function AddTodoForm({onAddTodo}) {
 
@@ -21,26 +22,20 @@ export default function AddTodoForm({onAddTodo}) {
     // props.onAddTodo(todoTitle); // old
 
     onAddTodo({ title: todoTitle, id: Date.now() });
+
+    setTodoTitle("");
+
    
-    // Inside handleAddTodo, remove the reset() method and replace it with logic to reset the todoTitle state to an empty String
-    // event.target[0].value="" // is this correct logic? If some mentor could verify in the feedback. Thx
-    setTodoTitle(""); // correct logic
 
-    
-
+  
   };
 
   return (
     <div>
       <form onSubmit={handleAddTodo}>
-        <label htmlFor="todoTitle">Title </label>
-        <input
-          type="text"
-          id="todoTitle"
-          name="title"
-          value={todoTitle} // there is no such parameter for this component on app.js line # 25  so how come no error flag?
-          onChange={handleTitleChange}
-        ></input>
+
+      <InputWithLabel todoTitle={todoTitle} handleTitleChange={handleTitleChange} isFocused>Title </InputWithLabel>
+
         <button type="submit">Add</button>
       </form>
     </div>
