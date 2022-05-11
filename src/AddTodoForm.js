@@ -23,7 +23,7 @@ export default function AddTodoForm({onAddTodo}) {
 
     onAddTodo({ title: todoTitle, id: Date.now() });
    
-    setTodoTitle("");
+    setTodoTitle(""); // correct logic
  
     // console.log(event.target[0].value);
 
