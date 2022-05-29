@@ -1,8 +1,12 @@
 import React from "react";
 
 // console.log("TodoListItem")
+// todo.fields.Title
 
-export default function TodoListItem({ todo: { title, id }, onRemoveTodo }) {
+export default function TodoListItem({ todo: { title, id, fields }, onRemoveTodo }) {
+
+  // console.log(fields.Title);
+
   const handleRemoveItem = () => {
     onRemoveTodo(id);
   };
@@ -10,7 +14,7 @@ export default function TodoListItem({ todo: { title, id }, onRemoveTodo }) {
   return (
     <div>
       <li>
-        {title} <button onClick={handleRemoveItem}>Remove</button>
+        {fields.Title} <button onClick={handleRemoveItem}>Remove</button>
       </li>
     </div>
   );

@@ -30,6 +30,7 @@ export default function TodoList({todoList, onRemoveTodo}) {
     <div>
       <ul>
         {todoList.map(function (todo) {
+          // console.log(todo.fields.Title)
           return <TodoListItem key={todo.id} todo={todo} onRemoveTodo={onRemoveTodo}/>
           
         })}
