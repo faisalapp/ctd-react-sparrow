@@ -26,6 +26,8 @@ function App() {
 
   const [isLoading, setIsLoading] = React.useState(true);
 
+
+  /*
   React.useEffect(() => {
     new Promise((resolve, reject) =>
       setTimeout(
@@ -43,6 +45,39 @@ function App() {
     });
   }, []);
 
+  */
+
+/// ------- Airtable ------------ ///
+
+  React.useEffect(() => {
+  fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`, {
+    headers : { Authorization : "Bearer keytuTDoVuvEcP4cB" }
+  })
+  
+  .then(response => response.json())
+  .then(result => {
+    setTodoList(result.records);
+    setIsLoading(false);
+
+    // console.log(result.records[0].fields.Title);
+
+  })
+
+// Chain a then method to your fetch call and pass it a function that returns the response JSON data
+
+.catch((error) => {
+  console.error('Error:', error);
+});
+
+  }, []);
+
+/// ------- Airtable ------------ ///
+
+
+
+/// ----------------------------- ///
+
+
   
   React.useEffect(() => {
     if (isLoading === false) {
@@ -55,6 +90,7 @@ function App() {
 
   const addTodo = (newTodo) => {
     setTodoList([...todoList, newTodo]);
+    // setTodoList([...todoList,result.records])
   };
 
   /// ----------------------------- ///
