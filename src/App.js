@@ -51,7 +51,7 @@ function App() {
 
   React.useEffect(() => {
   fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`, {
-    headers : { Authorization : "Bearer keytuTDoVuvEcP4cB" }
+    headers : { Authorization : `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`}
   })
   
   .then(response => response.json())
